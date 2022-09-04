@@ -43,9 +43,9 @@ resource "aws_mwaa_environment" "this" {
   }
 
   network_configuration {
-    security_group_ids = [
+    security_group_ids = concat(var.security_group_ids, [
       aws_security_group.this.id
-    ]
+    ])
     subnet_ids         = var.create_networking_config ? aws_subnet.private[*].id : var.private_subnet_ids
   }
 

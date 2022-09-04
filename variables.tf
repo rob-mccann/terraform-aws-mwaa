@@ -82,6 +82,12 @@ variable "private_subnet_ids" {
   default     = []
 }
 
+variable "security_group_ids" {
+  description = "Additional security groups to be added to MWAA"
+  type        = list(string)
+  default     = []
+}
+
 # iam
 variable "additional_execution_role_policy_document_json" {
   description = "Additional permissions to attach to the base mwaa execution role"
